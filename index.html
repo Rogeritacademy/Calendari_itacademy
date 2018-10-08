@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ca" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Calculadora It Academy</title>
+  <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <div class="tot valign-wrapper">
+    <div class="subtot valign">
+      <div class="container">
+        <div class="header center"><img src="img/itlogo.png" /></div>
+        <div class="row">
+          <div class="input-field col s6 offset-s3">
+            <input id="dia_inici" type="text" value="">
+            <label for="dia_inici">Data d'inici en format DD/MM/AAAA</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 center">
+            <a id="calc" class="waves-effect waves-light btn-large">Calcula</a>
+          </div>
+        </div>
+        <div class="row center">
+          <div class="resultat col s12"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/moment-with-locales.js"></script>
+<script type="text/javascript" src="js/moment-weekday-calc.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+
+</html>
