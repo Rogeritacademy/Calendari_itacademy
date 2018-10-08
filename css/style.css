@@ -38,5 +38,20 @@
   }
 
   .row {
-    padding: 30px 0px;
+    padding: 30px 0;
+  }
+
+  @media only screen and (max-width:37.5em) {
+    .input-field label {
+      font-size: 15px !important;
+    }
+
+    #calc {
+      font-size: 20px;
+    }
+
+    .resultat {
+      font-size: 19px;
+      line-height: 22px;
+    }
   }
