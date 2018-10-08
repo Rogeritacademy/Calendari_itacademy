@@ -42,6 +42,10 @@
   }
 
   @media only screen and (max-width:37.5em) {
+    .row {
+      padding: 10px 0;
+    }
+    
     .input-field label {
       font-size: 15px !important;
     }
