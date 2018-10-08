@@ -15,7 +15,12 @@ var festius = ['2018-05-01', '2018-05-21', '2018-07-30', '2018-07-31', '2018-09-
 if (el) {
   el.addEventListener("click", function() {
     var dia_inici = document.querySelector('#dia_inici').value;
-    var dia_final = moment(dia_inici, 'DD/MM/YYYY').addWorkdays(87, festius).locale('ca').format('LL');
-    resultat.innerHTML = 'Acabes el curs el dia ' + dia_final;
+    var comprova = moment(dia_inici, 'DD/MM/YYYY', true).isValid();
+    if(comprova == true) {
+      var dia_final = moment(dia_inici, 'DD/MM/YYYY').addWorkdays(87, festius).locale('ca').format('LL');
+      resultat.innerHTML = 'Acabes el curs el dia ' + dia_final;
+    } else {
+      resultat.innerHTML = 'Format de data incorrecte';
+    }
   });
 }
