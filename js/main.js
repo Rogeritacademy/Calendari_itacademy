@@ -24,34 +24,32 @@ if (el) {
   el.addEventListener("click", function() {
     var dia_inici = document.querySelector('#dia_inici').value;
     var comprova = moment(dia_inici, 'DD/MM/YYYY', true).isValid();
-    if(comprova == true) {
+    if (comprova == true) {
       var dia_final = moment(dia_inici, 'DD/MM/YYYY').addWorkdays(87, festius_totals).locale('ca').format('LL');
       var dia_final_format = moment(dia_inici, 'DD/MM/YYYY').addWorkdays(87, festius_totals);
 
       var current = moment().startOf('day');
       var given = moment(dia_final_format, 'DD/MM/YYYY');
-      var diferencia = Math.round(moment.duration(given.diff(current)).asDays());
-      var diff = moment.duration(given.diff(current)).asDays());
-      //console.log('current: ', current);
-      //console.log('given: ', given);
-      console.log('diff:', diferencia);
-
-// if (current >= given ) {
-//   console.log('tas pasao!!!1');
-// } else if (current)
-
-      // switch (diferencia) {
-      //   case 49:
-      //     console.log('Hola');
-      //     break;
-      //   case 'Giraffe':
-      //   case 'Dog':
-      //   case 'Pig':
-      //     console.log('This animal will go on Noah\'s Ark.');
-      //     break;
-      //   default:
-      //     console.log('This animal will not.');
-      // }
+      var diff = moment().weekdayCalc(current, given, [1, 2, 3, 4, 5], festius_totals);
+      var message = '';
+      console.log('diff:', diff);
+      console.log('cursats:', 88 - diff);
+/*
+      if (current > given) {
+        message = 'Que hi fas aquí? Ets un repetidor? ;-)';
+      } else if (diff > 44) {
+        message = 'Tranqui, encara no has passat de la meitat de dies';
+      } else if (diff < 44) {
+        message = 'Ja han passat més de la meitat dels dies';
+      } else if (diff < 30) {
+        message = 'Ja queda poquet';
+      } else if (diff < 20) {
+        message = 'Recta Final!';
+      } else if (diff < 10) {
+        message = 'Al loro, que ja queda poc!';
+      }
+*/
+//      resultat.innerHTML = 'Acabes el curs el dia ' + dia_final + '<br><br>Et queden ' + diff + ' dies lectius.<br><br>' + message;
 
       resultat.innerHTML = 'Acabes el curs el dia ' + dia_final;
 
