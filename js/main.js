@@ -1,10 +1,9 @@
 var el = document.querySelector('#calc');
-var agost = [];
 var resultat = document.querySelector('.resultat');
-var festius_totals = [];
 var festius2018 = ['2018-05-21', '2018-06-01', '2018-07-30', '2018-07-31', '2018-09-10', '2018-09-11', '2018-09-24', '2018-10-12', '2018-11-01', '2018-11-02', '2018-12-06', '2018-12-07', '2018-12-24', '2018-12-25', '2018-12-26', '2019-12-27', '2019-12-28', '2019-12-31'];
 var festius2019 = ['2019-01-06', '2019-01-02', '2019-01-03', '2019-01-04', '2019-01-05', '2019-04-18', '2019-04-19', '2019-04-22', '2019-05-01', '2019-05-02', '2019-05-03', '2019-09-09', '2019-09-10', '2019-09-11', '2019-11-01', '2019-12-05', '2019-12-06', '2019-12-23', '2019-12-24', '2019-12-25', '2019-12-26', '2019-12-27', '2019-12-30', '2019-12-31'];
 var festius2020 = ['2020-01-01', '2020-01-02', '2020-01-03', '2020-01-06', '2020-03-30', '2020-03-31'];
+var festius_totals = festius2018.concat(festius2019, festius2020);
 
 (function ompleAgosts() {
   for (var inici2018 = 20180801; inici2018 <= 20180831; inici2018++) {
@@ -27,12 +26,34 @@ if (el) {
     var comprova = moment(dia_inici, 'DD/MM/YYYY', true).isValid();
     if(comprova == true) {
       var dia_final = moment(dia_inici, 'DD/MM/YYYY').addWorkdays(87, festius_totals).locale('ca').format('LL');
-      resultat.innerHTML = 'Acabes el curs el dia ' + dia_final;
+      var dia_final_format = moment(dia_inici, 'DD/MM/YYYY').addWorkdays(87, festius_totals);
 
-      var dia_final_final = moment(dia_inici, 'DD/MM/YYYY').add(30, 'day').addWorkdays(87, festius_totals).locale('ca').format('LL').add(1, 'day');
-      var prova = moment('2020-01-01', 'YYYY/MM/DD').add(7, 'day');
-      console.log(dia_inici.add(1, 'day'));
-      console.log(dia_final_final);
+      var current = moment().startOf('day');
+      var given = moment(dia_final_format, 'DD/MM/YYYY');
+      var diferencia = Math.round(moment.duration(given.diff(current)).asDays());
+      var diff = moment.duration(given.diff(current)).asDays());
+      //console.log('current: ', current);
+      //console.log('given: ', given);
+      console.log('diff:', diferencia);
+
+// if (current >= given ) {
+//   console.log('tas pasao!!!1');
+// } else if (current)
+
+      // switch (diferencia) {
+      //   case 49:
+      //     console.log('Hola');
+      //     break;
+      //   case 'Giraffe':
+      //   case 'Dog':
+      //   case 'Pig':
+      //     console.log('This animal will go on Noah\'s Ark.');
+      //     break;
+      //   default:
+      //     console.log('This animal will not.');
+      // }
+
+      resultat.innerHTML = 'Acabes el curs el dia ' + dia_final;
 
     } else {
       resultat.innerHTML = 'Format de data incorrecte';
