@@ -5,24 +5,6 @@ var festius2019 = ['2019-01-06', '2019-01-02', '2019-01-03', '2019-01-04', '2019
 var festius2020 = ['2020-01-01', '2020-01-02', '2020-01-03', '2020-01-06', '2020-03-30', '2020-03-31'];
 var festius_totals = festius2018.concat(festius2019, festius2020);
 
-// fetch('festius.json')
-//   .then(function(response) {
-//     return response.json();
-//   })
-//   .then(function(myJson) {
-//     console.log(JSON.stringify(myJson));
-//     var json = JSON.stringify(myJson);
-//     var parsed = JSON.parse(json);
-//     var arr = [];
-//     for (var x in parsed) {
-//       arr.push(parsed[x]);
-//     }
-//     console.log(arr);
-//   });
-
-//var put = {};
-
-
 (function ompleAgosts() {
   for (var inici2018 = 20180801; inici2018 <= 20180831; inici2018++) {
     var data2018 = inici2018.toString();
@@ -52,7 +34,6 @@ if (el) {
       var message = '';
       console.log('queden:', dies_queden);
       console.log('cursats:', 88 - dies_queden);
-
       if (dia_actual > dia_stop) {
         message = 'Ep, que hi fas aquí? ;-)';
       } else if (dies_queden > 44 && dies_queden < 50) {
@@ -66,11 +47,7 @@ if (el) {
       } else if (dies_queden < 5) {
         message = 'Darrers díes!';
       }
-
       resultat.innerHTML = 'Acabes el curs el dia ' + dia_final + '<br><br>Et queden ' + dies_queden + ' dies lectius.<br><br>' + message;
-
-//      resultat.innerHTML = 'Acabes el curs el dia ' + dia_final;
-
     } else {
       resultat.innerHTML = 'Format de data incorrecte';
     }
