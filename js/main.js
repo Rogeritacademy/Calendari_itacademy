@@ -25,29 +25,20 @@ if (el) {
     var dia_inici = document.querySelector('#dia_inici').value;
     var comprova = moment(dia_inici, 'DD/MM/YYYY', true).isValid();
     if (comprova == true) {
+      var dia_inici_oficial = moment(dia_inici, 'DD/MM/YYYY');
       var dia_final = moment(dia_inici, 'DD/MM/YYYY').addWorkdays(87, festius_totals).locale('ca').format('LL');
       var dia_final_format = moment(dia_inici, 'DD/MM/YYYY').addWorkdays(87, festius_totals);
-
       var dia_actual = moment().startOf('day');
       var dia_stop = moment(dia_final_format, 'DD/MM/YYYY');
       var dies_queden = moment().weekdayCalc(dia_actual, dia_stop, [1, 2, 3, 4, 5], festius_totals);
-      var message = '';
-      console.log('queden:', dies_queden);
-      console.log('cursats:', 88 - dies_queden);
+
       if (dia_actual > dia_stop) {
-        message = 'Ep, que hi fas aquí? ;-)';
-      } else if (dies_queden > 44 && dies_queden < 50) {
-        message = 'Ja t\'apropes a la meitat del curs';
-      } else if (dies_queden < 44 && dies_queden > 30) {
-        message = 'Ja has passat de la meitat del curs';
-      } else if (dies_queden < 30 && dies_queden > 15) {
-        message = 'Aproximadament et queda un terç del curs';
-      } else if (dies_queden < 15 && dies_queden > 5) {
-        message = 'Sprint final ;-)';
-      } else if (dies_queden < 5) {
-        message = 'Darrers díes!';
+        resultat.innerHTML = 'Ep, que hi fas aquí? ;-)';
+      } else if (dia_actual < dia_inici_oficial) {
+        resultat.innerHTML = 'Encara no has començat,<br>però finalitzaràs el curs<br> el ' + dia_final;
+      } else {
+        resultat.innerHTML = 'Acabes el curs el dia ' + dia_final + '<br><br>Et queden ' + dies_queden + ' dies lectius.';
       }
-      resultat.innerHTML = 'Acabes el curs el dia ' + dia_final + '<br><br>Et queden ' + dies_queden + ' dies lectius.<br><br>' + message;
     } else {
       resultat.innerHTML = 'Format de data incorrecte';
     }
