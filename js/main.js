@@ -37,7 +37,7 @@ if (el) {
       } else if (dia_actual < dia_inici_oficial) {
         resultat.innerHTML = 'Encara no has començat,<br>però finalitzaràs el curs<br> el ' + dia_final;
       } else {
-        resultat.innerHTML = 'Acabes el curs el dia ' + dia_final + '<br><br>Et queden ' + dies_queden + ' dies lectius.';
+        resultat.innerHTML = 'Acabes el curs el dia ' + dia_final + '<br><br>Et queden ' + (dies_queden-1) + ' dies lectius (sense contar avui)';
       }
     } else {
       resultat.innerHTML = 'Format de data incorrecte';

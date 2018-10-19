@@ -25,8 +25,10 @@
 
   .input-field label {
     font-family: 'Merriweather', serif !important;
-    font-size: 24px !important;
+    font-size: 19px !important;
     color: white !important;
+    font-size: 19px !important;
+    width: 120% !important;
   }
 
   .input-field input[type=text] {
@@ -43,6 +45,19 @@
 
   .row {
     padding: 30px 0;
+  }
+
+  .textillo {
+    font-size: 14px;
+  }
+
+  .textillo a {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .textillo a:hover {
+    color: #000;
   }
 
   @media only screen and (max-width:37.5em) {
