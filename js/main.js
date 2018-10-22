@@ -25,6 +25,10 @@ if (el) {
     var dia_inici = document.querySelector('#dia_inici').value;
     var comprova = moment(dia_inici, 'DD/MM/YYYY', true).isValid();
     if (comprova == true) {
+
+      var locales = moment.locales(); // ['en', 'ru', 'pl']
+      console.log(locales);
+
       var dia_inici_oficial = moment(dia_inici, 'DD/MM/YYYY');
       var dia_final = moment(dia_inici, 'DD/MM/YYYY').addWorkdays(87, festius_totals).locale('ca').format('LL');
       var dia_final_format = moment(dia_inici, 'DD/MM/YYYY').addWorkdays(87, festius_totals);
